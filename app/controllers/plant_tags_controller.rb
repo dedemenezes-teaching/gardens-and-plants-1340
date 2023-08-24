@@ -7,14 +7,18 @@ class PlantTagsController < ApplicationController
   end
 
   def create
-    @plant_tag = PlantTag.new(plant_tag_params)
+    # raise
     @plant = Plant.find(params[:plant_id])
-    @plant_tag.plant = @plant
-    if @plant_tag.save
-      redirect_to garden_path(@plant.garden)
-    else
-      render :new, status: :unprocessable_entity
+    # retrieve all the tags that the user submitted
+    @tags = Tag.where(id: params[:plant_tag][:tag])
+    # for each tag
+    @tags.each do |tag|
+      # create the new plant_tag
+      plant_tag = PlantTag.new(tag: tag, plant: @plant)
+      plant_tag.save
     end
+
+    redirect_to garden_path(@plant.garden)
   end
 
   private
