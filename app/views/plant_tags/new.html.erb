@@ -1,0 +1,9 @@
+<div class="row justify-content-center">
+  <div class="col-4">
+    <%= simple_form_for [@plant, @plant_tag] do |f| %>
+      <%= f.association :tag %>
+      <%= f.button :submit %>
+    <% end %>
+
+  </div>
+</div>
