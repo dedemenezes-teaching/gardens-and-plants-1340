@@ -7,6 +7,10 @@ class PlantTagsController < ApplicationController
   end
 
   def create
+    # we are now creating multiple PlantTags
+    # To see the previous version, creating only one PlantTag at a time ⤵️
+    # https://github.com/dedemenezes/gardens-and-plants-1340/blob/32a87825a0572483c96789373e7564f7cb7454b1/app/controllers/plant_tags_controller.rb#L9
+
     # raise
     @plant = Plant.find(params[:plant_id])
     # retrieve all the tags that the user submitted
@@ -19,11 +23,5 @@ class PlantTagsController < ApplicationController
     end
 
     redirect_to garden_path(@plant.garden)
-  end
-
-  private
-
-  def plant_tag_params
-    params.require(:plant_tag).permit(:tag_id)
   end
 end
