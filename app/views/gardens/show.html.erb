@@ -14,8 +14,8 @@
               <% plant.tags.each do |tag| %>
                 <span><%= tag.name %></span>
               <% end %>
+              <%= link_to '+', new_plant_plant_tag_path(plant), class: 'card-tags--link' %>
             </div>
-            <%= link_to '+', new_plant_plant_tag_path(plant) %>
           </div>
 
 

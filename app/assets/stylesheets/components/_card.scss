@@ -42,3 +42,28 @@
     opacity: 1;
   }
 }
+
+.card-tags {
+  position: absolute;
+  bottom: 4%;
+  left: 4%;
+  width: 80%;
+
+  span {
+    font-size: .7rem;
+    background: $blue;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+}
+
+.card-tags--link {
+  color: white;
+  opacity: .8;
+  transition: .2s ease-in-out;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 1;
+  }
+}
